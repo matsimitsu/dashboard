@@ -1,0 +1,59 @@
+@import "compass"
+@import "compass/reset"
+
+@import "blueprint"
+@import "blueprint/liquid"
+
+
+$link-color:         #0388a6
+$link-hover-color:   #009ce0
+$link-focus-color:   false
+$link-active-color:  false
+$link-visited-color: false
+
+$font-color:  #fff
+$font-family: helvetica
+$base-font-size:   2.2em
+$base-line-height: 1.2em
+
+$green: green
+$red: red
+$white: white
+
+@include global-reset
+@include blueprint-liquid-grid
+
+
+body
+  background: #1d1d1d
+  font-family: $font-family
+  color: $font-color
+  font-size: $base-font-size
+  line-height: $base-line-height
+a
+  @include link-colors($link-color, $link-hover-color, $link-focus-color, $link-active-color, $link-visited-color)
+
+
+#main
+  padding: 5px
+  +container
+ul
+  li
+    padding: 5px 5px 5px 5px
+    margin-bottom: 10px
+    background: $green
+    +border-radius(5px)
+    +clearfix
+
+    &.late
+      background: $red
+
+    span
+      +column(4)
+      &.departure
+        +column(3)
+
+      &.destination
+        +column(11)
+      &.arrival_time
+        +float_right
